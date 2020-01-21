@@ -1,0 +1,25 @@
+{
+  "name": "react-build-tools",
+  "version": "0.1.0",
+  "description": "Code More.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joshua-Howard/react-build-tools.git"
+  },
+  "keywords": [
+    "React",
+    "Node",
+    "Express",
+    "Docker"
+  ],
+  "author": "Joshua Howard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joshua-Howard/react-build-tools/issues"
+  },
+  "homepage": "https://github.com/Joshua-Howard/react-build-tools#readme"
+}
