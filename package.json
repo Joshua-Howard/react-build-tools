@@ -4,6 +4,7 @@
   "description": "Code More.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/Joshua-Howard/react-build-tools#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
   }
 }
