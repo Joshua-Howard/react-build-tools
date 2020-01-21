@@ -4,7 +4,7 @@
   "description": "Code More.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./Backend/server.js",
+    "start": "nodemon ./Backend/server.js & webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
