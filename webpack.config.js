@@ -1,18 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './Frontend/index.js',
+  entry: path.join(__dirname, 'Frontend', 'index.js'),
   module: {
     rules: [
       {
         test: /\.jsx?/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+        use: ['babel-loader']
       },
       {
         test: /\.s[ac]ss$/i,
