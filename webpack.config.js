@@ -20,6 +20,9 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'Frontend', 'public')
+  },
   output: {
     path: path.join(__dirname, 'Frontend', 'public'),
     filename: 'bundle.js'
