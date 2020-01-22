@@ -4,8 +4,8 @@
   "description": "Code More.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./Backend/server.js & webpack-dev-server --inline --hot --open 'Google Chrome'",
-    "production": "NODE_ENV=production webpack --mode production && nodemon ./Backend/server.js",
+    "start": "nodemon ./Backend/server.js & webpack-dev-server --inline --hot --open 'Google Chrome'",
+    "production": "webpack --mode production && nodemon ./Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
