@@ -12,7 +12,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Scenes = props => {
-  console.log(props.placeholder, 'This is the value of the placeholder state');
+  const { placeholder } = props;
+  console.log(placeholder, 'This is the value of the placeholder state');
+
   return <div>Hey, I am React!</div>;
 };
 
