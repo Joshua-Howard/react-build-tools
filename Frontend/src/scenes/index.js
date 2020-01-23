@@ -7,23 +7,22 @@ import Secondary from './Secondary';
 import Primary from './Primary';
 
 const mapStateToProps = state => ({
-  placeholder: state.interface.placeholder
+  currentScreen: state.interface.currentScreen
 });
 
 const mapDispatchToProps = dispatch => ({
   // Functions that dispatch action creators
-  incrementPlaceholder: value => dispatch(actions.incrementPlaceholder(value))
+  selectNav: option => dispatch(actions.selectNav(option))
 });
 
 const Scenes = props => {
-  const { placeholder } = props;
-  console.log(placeholder, 'This is the value of the placeholder state');
+  const { selectNav } = props;
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center">
       <div className="row containerRow">
         <div className="col leftCol d-flex justify-content-around flex-column">
-          <Nav />
+          <Nav selectNav={selectNav} />
         </div>
 
         <div className="col rightCol">

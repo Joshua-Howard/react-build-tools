@@ -34,6 +34,7 @@ const initialState = {
 const interfaceReducer = (state = initialState, action) => {
   let placeholder;
   let instructionsArray;
+  let currentScreen;
 
   switch (action.type) {
     case types.INCREMENT_PLACEHOLDER:
@@ -43,6 +44,16 @@ const interfaceReducer = (state = initialState, action) => {
       return {
         ...state,
         placeholder
+      };
+
+    case types.SELECT_NAV:
+      currentScreen = action.payload;
+
+      // console.log(currentScreen);
+
+      return {
+        ...state,
+        currentScreen
       };
 
     case types.SELECT_OPTION:
