@@ -10,21 +10,21 @@ const Nav = props => {
 
   return (
     <>
-      <button className="btn" type="button" onClick={clickNav}>
+      <div className="buttonStyle" onClick={clickNav}>
         Start
-      </button>
-      <button className="btn " type="button" onClick={clickNav}>
+      </div>
+      <div className="buttonStyle" onClick={clickNav}>
         Express
-      </button>
-      <button className="btn" type="button" onClick={clickNav}>
+      </div>
+      <div className="buttonStyle" onClick={clickNav}>
         React
-      </button>
-      <button className="btn" type="button" onClick={clickNav}>
+      </div>
+      <div className="buttonStyle" onClick={clickNav}>
         Linting
-      </button>
-      <button className="btn" type="button" onClick={clickNav}>
+      </div>
+      <div className="buttonStyle" onClick={clickNav}>
         Launch!
-      </button>
+      </div>
     </>
   );
 };

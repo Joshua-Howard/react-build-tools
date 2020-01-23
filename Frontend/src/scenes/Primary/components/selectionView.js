@@ -22,7 +22,7 @@ const SelectionView = props => {
       {descriptionExists && (
         <input id="check1" type="checkbox" value="" onClick={clickSelect} />
       )}
-      <span className="selectionName">{name}</span>
+      <span className="selectionName">{`  ${name}`}</span>
       {descriptionExists && ' - '}
       {description}
       <span className="selectionTooltip">{descriptionTooltip}</span>

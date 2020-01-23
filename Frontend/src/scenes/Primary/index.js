@@ -28,7 +28,11 @@ const Primary = props => {
       <div className="flex-fill" />
       <div className="align-self-center">
         {currentScreen !== 'launch!' && (
-          <button onClick={continueButton} type="button">
+          <button
+            onClick={continueButton}
+            type="button"
+            className="continueButton"
+          >
             Continue
           </button>
         )}
