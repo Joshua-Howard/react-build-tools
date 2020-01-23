@@ -33,10 +33,13 @@ const initialState = {
 };
 
 const interfaceReducer = (state = initialState, action) => {
+  let payload;
   let placeholder;
   const selectionsArray = [];
   let instructionsArray;
   let currentScreen;
+
+  // console.log('actionnnn', action);
 
   switch (action.type) {
     case types.INCREMENT_PLACEHOLDER:
@@ -68,12 +71,16 @@ const interfaceReducer = (state = initialState, action) => {
       // Need to do an if statement to check the prev state so that we can delete things from the array if needed.
 
       // If the option had not been selected before the action was received, then push it into the instructions array
-      if (state.selections[state.currentScreen][action.payload] === false) {
-        instructionsArray = state.instructionsArray.slice();
+      payload = action.payload.toLowerCase();
 
+      instructionsArray = state.instructionsArray.slice();
+
+      if (state.selections[state.currentScreen][payload] === false) {
         // Push the object stored in instructions into the instructions array
-        instructionsArray.push(instructions[action.payload]);
+        instructionsArray.push(instructions[payload]);
       }
+
+      // console.log(instructionsArray);
 
       return {
         ...state,

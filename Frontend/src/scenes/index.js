@@ -9,16 +9,18 @@ import Primary from './Primary';
 const mapStateToProps = state => ({
   // May not need currentScreen
   // currentScreen: state.interface.currentScreen
-  selectionsArray: state.interface.selectionsArray
+  selectionsArray: state.interface.selectionsArray,
+  instructionsArray: state.interface.instructionsArray
 });
 
 const mapDispatchToProps = dispatch => ({
   // Functions that dispatch action creators
-  selectNav: option => dispatch(actions.selectNav(option))
+  selectNav: option => dispatch(actions.selectNav(option)),
+  selectOption: option => dispatch(actions.selectOption(option))
 });
 
 const Scenes = props => {
-  const { selectionsArray, selectNav } = props;
+  const { selectionsArray, selectNav, selectOption, instructionsArray } = props;
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -30,13 +32,16 @@ const Scenes = props => {
         <div className="col rightCol">
           <div className="row primaryRow" style={{ height: '70%' }}>
             <div className="col">
-              <Primary selectionsArray={selectionsArray} />
+              <Primary
+                selectionsArray={selectionsArray}
+                selectOption={selectOption}
+              />
             </div>
           </div>
 
           <div className="row secondaryRow">
             <div className="col">
-              <Secondary />
+              <Secondary instructionsArray={instructionsArray} />
             </div>
           </div>
         </div>

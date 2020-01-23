@@ -3,15 +3,21 @@ import React from 'react';
 import './selectionView.sass';
 
 const SelectionView = props => {
-  const { name, description, descriptionTooltip } = props;
+  const {
+    keyName,
+    name,
+    description,
+    descriptionTooltip,
+    selectOption
+  } = props;
+
+  const clickSelect = () => {
+    selectOption(keyName);
+  };
+
   return (
     <label className="selectionView">
-      <input
-        id="check1"
-        type="checkbox"
-        value=""
-        onClick={value => console.log(value)}
-      />
+      <input id="check1" type="checkbox" value="" onClick={clickSelect} />
       <span className="selectionName">{name}</span>
       {' - '}
       {description}
