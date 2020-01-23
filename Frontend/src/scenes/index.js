@@ -35,7 +35,7 @@ const Scenes = props => {
         </div>
 
         <div className="col rightCol">
-          <div className="row primaryRow" style={{ height: '70%' }}>
+          <div className="row primaryRow" style={{ height: '62%' }}>
             <div className="col">
               <Primary
                 selectionsArray={selectionsArray}

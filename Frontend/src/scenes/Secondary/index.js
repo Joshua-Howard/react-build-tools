@@ -18,7 +18,14 @@ const Secondary = props => {
 
   return (
     <div className="p-2">
-      {instructionsExist && <CodeView text="npm install" />}
+      {instructionsExist && (
+        <CodeView
+          text="npm install"
+          tooltip={
+            "Saves the package and it's dependencies to package.json and the node_modules folder"
+          }
+        />
+      )}
       {codeViewComponents}
     </div>
   );

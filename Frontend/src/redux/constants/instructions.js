@@ -26,7 +26,7 @@ const instructions = {
       'Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development. ',
     npmCode: 'nodemon',
     npmCodeTooltip:
-      'Nodemon automatically restarts your server after you save your files.'
+      'Nodemon automatically restarts your server after you save your files'
   },
   // React
   webpackdev: {

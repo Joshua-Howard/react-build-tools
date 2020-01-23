@@ -7,7 +7,7 @@ const SelectionView = props => {
     keyName,
     name,
     description,
-    descriptionTooltip,
+    // descriptionTooltip,
     selectOption
   } = props;
 
@@ -25,7 +25,7 @@ const SelectionView = props => {
       <span className="selectionName">{`  ${name}`}</span>
       {descriptionExists && ' - '}
       {description}
-      <span className="selectionTooltip">{descriptionTooltip}</span>
+      {/* <span className="selectionTooltip">{descriptionTooltip}</span> */}
     </label>
   );
 };
