@@ -1,0 +1,31 @@
+@import '../scss/global.scss'
+
+$colRadius: 2rem
+
+.container-fluid
+  height: 100vh
+
+.containerRow
+  height: 80vh
+  width: 90vw
+
+.leftCol
+  border-radius: $colRadius
+  background-color: $lightGrey
+  flex-grow: .3 !important
+  margin-right: 6%
+
+.rightCol
+  display: flex !important
+  flex-flow: column !important
+  overflow: hidden
+
+.primaryRow
+  border-radius: $colRadius
+  background-color: $lightGrey
+  margin-bottom: 6%
+
+.secondaryRow
+  border-radius: $colRadius
+  background-color: $darkGrey
+  flex: 1 1 auto !important
