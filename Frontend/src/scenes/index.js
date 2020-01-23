@@ -7,7 +7,9 @@ import Secondary from './Secondary';
 import Primary from './Primary';
 
 const mapStateToProps = state => ({
-  currentScreen: state.interface.currentScreen
+  // May not need currentScreen
+  // currentScreen: state.interface.currentScreen
+  selectionsArray: state.interface.selectionsArray
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Scenes = props => {
-  const { selectNav } = props;
+  const { selectionsArray, selectNav } = props;
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -28,7 +30,7 @@ const Scenes = props => {
         <div className="col rightCol">
           <div className="row primaryRow" style={{ height: '70%' }}>
             <div className="col">
-              <Primary />
+              <Primary selectionsArray={selectionsArray} />
             </div>
           </div>
 

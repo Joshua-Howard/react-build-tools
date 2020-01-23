@@ -26,6 +26,7 @@ const selectionOptions = {
 
 const initialState = {
   selections: selectionOptions,
+  selectionsArray: [],
   instructionsArray: [],
   currentScreen: 'start', // start, express, react, linting, launch
   placeholder: 10
@@ -33,6 +34,7 @@ const initialState = {
 
 const interfaceReducer = (state = initialState, action) => {
   let placeholder;
+  const selectionsArray = [];
   let instructionsArray;
   let currentScreen;
 
@@ -47,13 +49,18 @@ const interfaceReducer = (state = initialState, action) => {
       };
 
     case types.SELECT_NAV:
-      currentScreen = action.payload;
+      currentScreen = action.payload.toLowerCase();
 
-      // console.log(currentScreen);
+      // Get all detail keys for the currently selected screen
+      Object.keys(selectionOptions[currentScreen]).forEach(option =>
+        // Push the data into the selection options array
+        selectionsArray.push(instructions[option])
+      );
 
       return {
         ...state,
-        currentScreen
+        currentScreen,
+        selectionsArray
       };
 
     case types.SELECT_OPTION:
