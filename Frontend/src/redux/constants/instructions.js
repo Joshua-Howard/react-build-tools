@@ -8,6 +8,14 @@ const instructions = {
     npmCode: '',
     npmCodeTooltip: ''
   },
+  'launch!': {
+    key: 'launch!',
+    name: 'Your commands are ready below!',
+    description: '',
+    descriptionTooltip: '',
+    npmCode: '',
+    npmCodeTooltip: ''
+  },
   // Express
   nodemon: {
     key: 'nodemon',
@@ -74,8 +82,8 @@ const instructions = {
     description: 'Static code analysis for JavaScript',
     descriptionTooltip:
       'A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript.',
-    npmCode: 'cool-package',
-    npmCodeTooltip: 'I am so easy to install'
+    npmCode: 'eslint',
+    npmCodeTooltip: 'ESLint JavaScript linter'
   },
   eslintairbnb: {
     key: 'eslintAirbnb',

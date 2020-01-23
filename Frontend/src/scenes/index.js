@@ -7,8 +7,7 @@ import Secondary from './Secondary';
 import Primary from './Primary';
 
 const mapStateToProps = state => ({
-  // May not need currentScreen
-  // currentScreen: state.interface.currentScreen
+  currentScreen: state.interface.currentScreen,
   selectionsArray: state.interface.selectionsArray,
   instructionsArray: state.interface.instructionsArray
 });
@@ -20,7 +19,13 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Scenes = props => {
-  const { selectionsArray, selectNav, selectOption, instructionsArray } = props;
+  const {
+    selectionsArray,
+    selectNav,
+    selectOption,
+    instructionsArray,
+    currentScreen
+  } = props;
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -35,6 +40,8 @@ const Scenes = props => {
               <Primary
                 selectionsArray={selectionsArray}
                 selectOption={selectOption}
+                selectNav={selectNav}
+                currentScreen={currentScreen}
               />
             </div>
           </div>

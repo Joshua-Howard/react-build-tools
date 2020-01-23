@@ -14,7 +14,14 @@ const Secondary = props => {
     />
   ));
 
-  return <div className="p-2">{codeViewComponents}</div>;
+  const instructionsExist = instructionsArray.length > 0;
+
+  return (
+    <div className="p-2">
+      {instructionsExist && <CodeView text="npm install" />}
+      {codeViewComponents}
+    </div>
+  );
 };
 
 export default Secondary;

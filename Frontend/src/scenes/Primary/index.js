@@ -5,7 +5,7 @@ import SelectionView from './components/selectionView';
 
 const Primary = props => {
   // Loop through the object and add anything to an array of values
-  const { selectionsArray, selectOption } = props;
+  const { selectionsArray, selectOption, selectNav, currentScreen } = props;
 
   const selectionViewComponents = selectionsArray.map(selections => (
     <SelectionView
@@ -18,7 +18,23 @@ const Primary = props => {
     />
   ));
 
-  return <div className="p-2">{selectionViewComponents}</div>;
+  const continueButton = () => {
+    selectNav('next');
+  };
+
+  return (
+    <div className="p-2 h-100 d-flex flex-column">
+      {selectionViewComponents}
+      <div className="flex-fill" />
+      <div className="align-self-center">
+        {currentScreen !== 'launch!' && (
+          <button onClick={continueButton} type="button">
+            Continue
+          </button>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Primary;

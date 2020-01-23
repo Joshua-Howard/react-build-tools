@@ -4,6 +4,7 @@ import instructions from '../constants/instructions';
 const selectionOptions = {
   // Blanks for start
   start: { start: false },
+  'launch!': { 'launch!': false },
   express: { nodemon: false },
   react: {
     webpackdev: false,
@@ -30,11 +31,13 @@ const selectionOptions = {
 
 // Create an object that has strings for each option. It can be called constants.
 
+const screenOrder = ['start', 'express', 'react', 'linting', 'launch!'];
+
 const initialState = {
   selections: selectionOptions,
-  selectionsArray: [],
+  selectionsArray: [instructions.start],
   instructionsArray: [],
-  currentScreen: 'start', // start, express, react, linting, launch
+  currentScreen: 'start', // start, express, react, linting, launch!
   placeholder: 10
 };
 
@@ -58,8 +61,22 @@ const interfaceReducer = (state = initialState, action) => {
       };
 
     case types.SELECT_NAV:
-      currentScreen = action.payload.toLowerCase();
+      // Payload is current screen or 'next' to go to the next screen
+      payload = action.payload.toLowerCase();
 
+      currentScreen = payload;
+
+      // Next can be used to continue onto the next screen in the screen order array
+      if (payload === 'next') {
+        const currIndex = screenOrder.indexOf(state.currentScreen);
+
+        // If the the next scree
+        const nextScreen = screenOrder[currIndex + 1];
+
+        currentScreen = nextScreen;
+      }
+
+      // Core Code Below
       // Get all detail keys for the currently selected screen
       Object.keys(selectionOptions[currentScreen]).forEach(option =>
         // Push the data into the selection options array
