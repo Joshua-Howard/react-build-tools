@@ -5,7 +5,7 @@ const CodeView = props => {
   const { text, tooltip } = props;
   return (
     <code className="codeView">
-      {text}
+      {` ${text}`}
       <span className="codeTooltip">{tooltip}</span>
     </code>
   );

@@ -15,9 +15,13 @@ const SelectionView = props => {
     selectOption(keyName);
   };
 
+  const descriptionExists = description.length > 0;
+
   return (
     <label className="selectionView">
-      <input id="check1" type="checkbox" value="" onClick={clickSelect} />
+      {descriptionExists && (
+        <input id="check1" type="checkbox" value="" onClick={clickSelect} />
+      )}
       <span className="selectionName">{name}</span>
       {' - '}
       {description}

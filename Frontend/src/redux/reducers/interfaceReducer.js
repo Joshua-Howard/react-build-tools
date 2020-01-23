@@ -2,15 +2,21 @@ import * as types from '../actions/actionTypes';
 import instructions from '../constants/instructions';
 
 const selectionOptions = {
+  // Blanks for start
+  start: { start: false },
   express: { nodemon: false },
   react: {
-    webpackDev: false,
+    webpackdev: false,
     bootstrap: false,
     sass: false,
     redux: false,
-    reduxDev: false
+    reduxdev: false
   },
-  linting: { eslint: false, prettier: false }
+  linting: {
+    eslint: false,
+    eslintairbnb: false
+    // prettier: false
+  }
 };
 
 // Add a state to store "currentScreen" to keep track of which screen we are on.
