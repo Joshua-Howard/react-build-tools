@@ -1,4 +1,5 @@
 import * as types from '../actions/actionTypes';
+import instructions from '../constants/instructions';
 
 const selectionOptions = {
   express: { nodemon: false },
@@ -21,13 +22,18 @@ const selectionOptions = {
 // Every time we update the state after clicking, in state: We loop through all of the keys and values in the object.
 // Then we do the same thing where we come that to values in an object that references a constants file.
 
+// Create an object that has strings for each option. It can be called constants.
+
 const initialState = {
   selections: selectionOptions,
+  instructionsArray: [],
+  currentScreen: 'start', // start, express, react, linting, launch
   placeholder: 10
 };
 
 const interfaceReducer = (state = initialState, action) => {
   let placeholder;
+  let instructionsArray;
 
   switch (action.type) {
     case types.INCREMENT_PLACEHOLDER:
@@ -37,6 +43,23 @@ const interfaceReducer = (state = initialState, action) => {
       return {
         ...state,
         placeholder
+      };
+
+    case types.SELECT_OPTION:
+      // Need to update instructions array by pushing the data for the selected option into the array
+      // Need to do an if statement to check the prev state so that we can delete things from the array if needed.
+
+      // If the option had not been selected before the action was received, then push it into the instructions array
+      if (state.selections[state.currentScreen][action.payload] === false) {
+        instructionsArray = state.instructionsArray.slice();
+
+        // Push the object stored in instructions into the instructions array
+        instructionsArray.push(instructions[action.payload]);
+      }
+
+      return {
+        ...state,
+        instructionsArray
       };
 
     default:
