@@ -3,20 +3,22 @@ import instructions from '../constants/instructions';
 
 const selectionOptions = {
   // Blanks for start
-  start: { start: false },
-  'launch!': { 'launch!': false },
-  express: { nodemon: false },
+  start: { start: { selected: false, instructions: instructions.start } },
+  'launch!': {
+    'launch!': { selected: false, instructions: instructions['launch!'] }
+  },
+  express: { nodemon: { selected: false, instructions: instructions.nodemon } },
   react: {
-    webpackdev: false,
-    bootstrap: false,
-    sass: false,
-    redux: false,
-    reduxdev: false
+    webpackdev: { selected: false, instructions: instructions.webpackdev },
+    bootstrap: { selected: false, instructions: instructions.bootstrap },
+    sass: { selected: false, instructions: instructions.sass },
+    redux: { selected: false, instructions: instructions.redux },
+    reduxdev: { selected: false, instructions: instructions.reduxdev }
   },
   linting: {
-    eslint: false,
-    eslintairbnb: false
-    // prettier: false
+    eslint: { selected: false, instructions: instructions.eslint },
+    eslintairbnb: { selected: false, instructions: instructions.eslintairbnb }
+    // prettier: { selected: false, instructions: instructions.prettier },
   }
 };
 
@@ -35,7 +37,7 @@ const screenOrder = ['start', 'express', 'react', 'linting', 'launch!'];
 
 const initialState = {
   selections: selectionOptions,
-  selectionsArray: [instructions.start],
+  selectionsArray: [selectionOptions.start.start.instructions],
   instructionsArray: [],
   currentScreen: 'start', // start, express, react, linting, launch!
   placeholder: 10
@@ -71,10 +73,12 @@ const interfaceReducer = (state = initialState, action) => {
 
       // Core Code Below
       // Get all detail keys for the currently selected screen
-      Object.keys(selectionOptions[currentScreen]).forEach(option =>
+      Object.keys(selectionOptions[currentScreen]).forEach(option => {
         // Push the data into the selection options array
-        selectionsArray.push(instructions[option])
-      );
+        selectionsArray.push(
+          selectionOptions[currentScreen][option].instructions
+        );
+      });
 
       return {
         ...state,
@@ -90,9 +94,12 @@ const interfaceReducer = (state = initialState, action) => {
 
       instructionsArray = state.instructionsArray.slice();
 
-      if (state.selections[state.currentScreen][payload] === false) {
+      // Check if the option has already been selected (if it is then its already in the instructions array)
+      if (state.selections[state.currentScreen][payload].selected === false) {
         // Push the object stored in instructions into the instructions array
-        instructionsArray.push(instructions[payload]);
+        instructionsArray.push(
+          state.selections[state.currentScreen][payload].instructions
+        );
       }
 
       // console.log(instructionsArray);
