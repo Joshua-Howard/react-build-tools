@@ -4,7 +4,16 @@ import CodeView from './Components/codeView';
 
 const Secondary = props => {
   // Loop through the object and add anything to an array of values
-  const { instructionsArray } = props;
+  const { selections } = props;
+  const instructionsArray = [];
+
+  Object.keys(selections).forEach(screen => {
+    Object.keys(selections[screen]).forEach(option => {
+      if (selections[screen][option].selected) {
+        instructionsArray.push(selections[screen][option].instructions);
+      }
+    });
+  });
 
   const codeViewComponents = instructionsArray.map(instruction => (
     <CodeView

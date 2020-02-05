@@ -7,9 +7,9 @@ import Secondary from './Secondary';
 import Primary from './Primary';
 
 const mapStateToProps = state => ({
+  selections: state.interface.selections,
   currentScreen: state.interface.currentScreen,
-  selectionsArray: state.interface.selectionsArray,
-  instructionsArray: state.interface.instructionsArray
+  selectionsArray: state.interface.selectionsArray
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -20,10 +20,10 @@ const mapDispatchToProps = dispatch => ({
 
 const Scenes = props => {
   const {
+    selections,
     selectionsArray,
     selectNav,
     selectOption,
-    instructionsArray,
     currentScreen
   } = props;
 
@@ -48,7 +48,7 @@ const Scenes = props => {
 
           <div className="row secondaryRow">
             <div className="col">
-              <Secondary instructionsArray={instructionsArray} />
+              <Secondary selections={selections} />
             </div>
           </div>
         </div>

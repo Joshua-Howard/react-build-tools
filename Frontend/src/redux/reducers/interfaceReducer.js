@@ -38,7 +38,6 @@ const screenOrder = ['start', 'express', 'react', 'linting', 'launch!'];
 const initialState = {
   selections: selectionOptions,
   selectionsArray: [selectionOptions.start.start],
-  instructionsArray: [],
   currentScreen: 'start', // start, express, react, linting, launch!
   placeholder: 10
 };
@@ -50,8 +49,8 @@ const interfaceReducer = (state = initialState, action) => {
   }
 
   const selectionsArray = [];
-  let instructionsArray;
   let currentScreen;
+  let selections;
 
   // console.log('actionnnn', action);
 
@@ -90,21 +89,15 @@ const interfaceReducer = (state = initialState, action) => {
 
       // If the option had not been selected before the action was received, then push it into the instructions array
 
-      instructionsArray = state.instructionsArray.slice();
+      selections = { ...state.selections };
 
-      // Check if the option has already been selected (if it is then its already in the instructions array)
-      if (state.selections[state.currentScreen][payload].selected === false) {
-        // Push the object stored in instructions into the instructions array
-        instructionsArray.push(
-          state.selections[state.currentScreen][payload].instructions
-        );
-      }
-
-      // console.log(instructionsArray);
+      selections[state.currentScreen][payload].selected = !state.selections[
+        state.currentScreen
+      ][payload].selected;
 
       return {
         ...state,
-        instructionsArray
+        selections
       };
 
     default:
