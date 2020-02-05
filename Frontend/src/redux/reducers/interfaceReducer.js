@@ -43,7 +43,10 @@ const initialState = {
 
 const interfaceReducer = (state = initialState, action) => {
   let payload;
-  let placeholder;
+  if (action.payload !== undefined) {
+    payload = action.payload.toLowerCase();
+  }
+
   const selectionsArray = [];
   let instructionsArray;
   let currentScreen;
@@ -51,18 +54,8 @@ const interfaceReducer = (state = initialState, action) => {
   // console.log('actionnnn', action);
 
   switch (action.type) {
-    case types.INCREMENT_PLACEHOLDER:
-      placeholder = state.placeholder + 1;
-      console.log(placeholder, 'Placeholder State', action.payload, 'Payload');
-
-      return {
-        ...state,
-        placeholder
-      };
-
     case types.SELECT_NAV:
       // Payload is current screen or 'next' to go to the next screen
-      payload = action.payload.toLowerCase();
 
       currentScreen = payload;
 
@@ -94,7 +87,6 @@ const interfaceReducer = (state = initialState, action) => {
       // Need to do an if statement to check the prev state so that we can delete things from the array if needed.
 
       // If the option had not been selected before the action was received, then push it into the instructions array
-      payload = action.payload.toLowerCase();
 
       instructionsArray = state.instructionsArray.slice();
 

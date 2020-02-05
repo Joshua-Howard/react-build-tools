@@ -1,3 +1,5 @@
+// Key is a unique value used to optimize React re-rendering
+
 const instructions = {
   // Start
   start: {
