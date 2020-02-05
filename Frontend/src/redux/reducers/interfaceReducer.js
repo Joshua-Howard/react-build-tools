@@ -37,7 +37,7 @@ const screenOrder = ['start', 'express', 'react', 'linting', 'launch!'];
 
 const initialState = {
   selections: selectionOptions,
-  selectionsArray: [selectionOptions.start.start.instructions],
+  selectionsArray: [selectionOptions.start.start],
   instructionsArray: [],
   currentScreen: 'start', // start, express, react, linting, launch!
   placeholder: 10
@@ -75,9 +75,7 @@ const interfaceReducer = (state = initialState, action) => {
       // Get all detail keys for the currently selected screen
       Object.keys(selectionOptions[currentScreen]).forEach(option => {
         // Push the data into the selection options array
-        selectionsArray.push(
-          selectionOptions[currentScreen][option].instructions
-        );
+        selectionsArray.push(selectionOptions[currentScreen][option]);
       });
 
       return {
