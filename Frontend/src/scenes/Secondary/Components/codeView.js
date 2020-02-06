@@ -1,13 +1,12 @@
 import React from 'react';
-import './codeView.sass';
+import Tooltip from './tooltip';
 
 const CodeView = props => {
   const { text, tooltip } = props;
   return (
-    <code className="codeView">
+    <Tooltip placement="top" tooltip={tooltip}>
       {` ${text}`}
-      <span className="codeTooltip">{tooltip}</span>
-    </code>
+    </Tooltip>
   );
 };
 
